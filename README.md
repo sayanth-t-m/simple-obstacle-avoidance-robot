@@ -1,8 +1,21 @@
 # Super Ultra 1
 
+Super Ultra 1 is an autonomous robot designed to navigate and avoid obstacles using ultrasonic distance measurement and motor control. The robot maneuvers around obstacles with a series of predefined turns when obstacles are detected in its path.
+
+## Table of Contents
+- [Overview](#overview)
+- [Components](#components)
+- [Pin Configuration and Connections](#pin-configuration-and-connections)
+- [Circuit Diagram](#circuit-diagram)
+- [Power Supply](#power-supply)
+- [Software and Libraries](#software-and-libraries)
+- [Algorithm](#algorithm)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Overview
 
-Super Ultra 1 is an autonomous robot designed to navigate and avoid obstacles using ultrasonic distance measurement and motor control. It uses a series of predefined turns to maneuver around obstacles detected in its path.
+Super Ultra 1 uses an ultrasonic sensor to detect obstacles and control motor movements through an Arduino microcontroller. It follows a simple algorithm to measure distances and avoid collisions.
 
 ## Components
 
@@ -28,18 +41,24 @@ Super Ultra 1 is an autonomous robot designed to navigate and avoid obstacles us
   - **Trigger Pin**: `3`
   - **Echo Pin**: `2`
 
-### Circuit Diagram
+### Pin Diagram
 
-![Circuit Diagram](path/to/circuit-diagram.png)
+Below is the pin configuration for the Super Ultra 1 robot:
 
-**Connections**:
-- **Motors**: Connect the motor driver’s input pins to the Arduino pins as specified. Connect the motors to the output pins of the motor driver.
-- **Ultrasonic Sensor**: Connect the Trigger and Echo pins of the ultrasonic sensor to the corresponding Arduino pins.
+| Component          | Arduino Pin |
+|--------------------|-------------|
+| Motor 1 Pin 1      | 7           |
+| Motor 1 Pin 2      | 8           |
+| Motor 2 Pin 1      | 9           |
+| Motor 2 Pin 2      | 10          |
+| Ultrasonic Trigger | 3           |
+| Ultrasonic Echo    | 2           |
+
 
 ## Power Supply
 
 - **Arduino**: Powered via USB or an external battery pack (7-12V).
-- **Motors**: Powered through the motor driver which should be connected to an appropriate power source (check the motor driver specifications for recommended voltage).
+- **Motors**: Powered through the motor driver, which should be connected to an appropriate power source (check the motor driver specifications for recommended voltage).
 
 ## Software and Libraries
 
@@ -52,6 +71,3 @@ Super Ultra 1 is an autonomous robot designed to navigate and avoid obstacles us
 
 - **NewPing**: Library for handling ultrasonic distance measurement.
   - **Installation**: In the Arduino IDE, go to `Sketch` > `Include Library` > `Manage Libraries`, search for "NewPing", and install it.
-
-```cpp
-#include <NewPing.h>
